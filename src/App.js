@@ -7,16 +7,20 @@ import Header from "./components/layout/Header";
 import ProjectItem from "./components/project/ProjectItem";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import AddProject from "./components/project/AddProject";
+import { Provider } from "react-redux";
+import store from "./store";
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Header />
-        <Route exact path="/dashboard" component={Dashboard} />
-        <Route exact path="/addProject" component={AddProject} />
-      </div>
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <div className="App">
+          <Header />
+          <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/addProject" component={AddProject} />
+        </div>
+      </Router>
+    </Provider>
   );
 }
 
