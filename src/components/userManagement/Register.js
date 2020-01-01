@@ -82,7 +82,8 @@ class Register extends Component {
                     value={this.state.username}
                     onChange={this.onChange}
                   />
-                  {this.props.errors.username && (
+                  {(this.props.errors.username ||
+                    this.props.errors.userAlreadyExists) && (
                     <div className="invalid-feedback">
                       {this.props.errors.username}
                     </div>
