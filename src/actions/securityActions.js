@@ -6,7 +6,7 @@ import jwt_decode from "jwt-decode";
 export const createNewUser = (newUser, history) => async dispatch => {
   try {
     const res = await axios.post(
-      "https://cors-anywhere.herokuapp.com/http://3.20.54.196:8080/users/signup",
+      "http://3.20.54.196:8080/users/signup",
       newUser
     );
     history.push("/login");
@@ -25,7 +25,7 @@ export const createNewUser = (newUser, history) => async dispatch => {
 export const login = LoginRequest => async dispatch => {
   try {
     const res = await axios.post(
-      "https://cors-anywhere.herokuapp.com/http://3.20.54.196:8080/users/login",
+      "http://3.20.54.196:8080/users/login",
       LoginRequest
     );
 

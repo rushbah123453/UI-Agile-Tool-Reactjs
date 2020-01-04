@@ -12,10 +12,7 @@ export const addProjectTask = (
   history
 ) => async dispatch => {
   try {
-    await axios.post(
-      `https://cors-anywhere.herokuapp.com/http://3.20.54.196:8080/backlog/${backlog_id}`,
-      project_task
-    );
+    await axios.post(`/backlog/${backlog_id}`, project_task);
     history.push(`/projectBoard/${backlog_id}`);
     dispatch({
       type: GET_ERRORS,
@@ -31,9 +28,7 @@ export const addProjectTask = (
 
 export const getBacklogs = backlog_id => async dispatch => {
   try {
-    const resp = await axios.get(
-      `https://cors-anywhere.herokuapp.com/http://3.20.54.196:8080/backlog/${backlog_id}`
-    );
+    const resp = await axios.get(`/backlog/${backlog_id}`);
     dispatch({
       type: GET_BACKLOG,
       payload: resp.data
@@ -52,9 +47,7 @@ export const getProjectTask = (
   history
 ) => async dispatch => {
   try {
-    const resp = await axios.get(
-      `https://cors-anywhere.herokuapp.com/http://3.20.54.196:8080/backlog/${backlog_id}/${ps_id}`
-    );
+    const resp = await axios.get(`/backlog/${backlog_id}/${ps_id}`);
     dispatch({
       type: GET_PROJECT_TASK,
       payload: resp.data
@@ -72,7 +65,7 @@ export const updateProjectTask = (
 ) => async dispatch => {
   try {
     const resp = await axios.patch(
-      `https://cors-anywhere.herokuapp.com/http://3.20.54.196:8080/backlog/${backlog_id}/${ps_id}`,
+      `/backlog/${backlog_id}/${ps_id}`,
       project_task
     );
     history.push(`/projectBoard/${backlog_id}`);
@@ -91,7 +84,7 @@ export const updateProjectTask = (
 export const deleteProjectTask = (backlog_id, ps_id) => async dispatch => {
   try {
     const resp = await axios.delete(
-      `https://cors-anywhere.herokuapp.com/http://3.20.54.196:8080/backlog/${backlog_id}/${ps_id}`
+      `http://3.20.54.196:8080/backlog/${backlog_id}/${ps_id}`
     );
 
     dispatch({

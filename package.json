@@ -24,7 +24,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": "https://cors-anywhere.herokuapp.com/http://3.20.54.196:8080",
+  "proxy": "http://3.20.54.196:8080",
   "eslintConfig": {
     "extends": "react-app"
   },
