@@ -3,7 +3,10 @@ import { GET_ERRORS, GET_PROJECTS, GET_PROJECT, DELETE_PROJECT } from "./types";
 
 export const createProject = (project, history) => async dispatch => {
   try {
-    const res = await axios.post("/project", project);
+    const res = await axios.post(
+      "https://cors-anywhere.herokuapp.com/http://3.20.54.196:8080/project",
+      project
+    );
     history.push("/dashboard");
     dispatch({
       type: GET_ERRORS,
@@ -18,7 +21,9 @@ export const createProject = (project, history) => async dispatch => {
 };
 
 export const getProjects = () => async dispatch => {
-  const res = await axios.get("/project/all");
+  const res = await axios.get(
+    "https://cors-anywhere.herokuapp.com/http://3.20.54.196:8080/project/all"
+  );
   dispatch({
     type: GET_PROJECTS,
     payload: res.data
@@ -27,7 +32,9 @@ export const getProjects = () => async dispatch => {
 
 export const getProject = (id, history) => async dispatch => {
   try {
-    const res = await axios.get(`/project/${id}`);
+    const res = await axios.get(
+      `https://cors-anywhere.herokuapp.com/http://3.20.54.196:8080/project/${id}`
+    );
     dispatch({
       type: GET_PROJECT,
       payload: res.data
@@ -38,7 +45,9 @@ export const getProject = (id, history) => async dispatch => {
 };
 
 export const deleteProject = id => async dispatch => {
-  const res = await axios.delete(`/project/${id}`);
+  const res = await axios.delete(
+    `https://cors-anywhere.herokuapp.com/http://3.20.54.196:8080/project/${id}`
+  );
   dispatch({
     type: DELETE_PROJECT,
     payload: id

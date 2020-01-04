@@ -5,7 +5,10 @@ import jwt_decode from "jwt-decode";
 
 export const createNewUser = (newUser, history) => async dispatch => {
   try {
-    const res = await axios.post("/users/signup", newUser);
+    const res = await axios.post(
+      "https://cors-anywhere.herokuapp.com/http://3.20.54.196:8080/users/signup",
+      newUser
+    );
     history.push("/login");
     dispatch({
       type: GET_ERRORS,
@@ -21,7 +24,10 @@ export const createNewUser = (newUser, history) => async dispatch => {
 
 export const login = LoginRequest => async dispatch => {
   try {
-    const res = await axios.post("/users/login", LoginRequest);
+    const res = await axios.post(
+      "https://cors-anywhere.herokuapp.com/http://3.20.54.196:8080/users/login",
+      LoginRequest
+    );
 
     //EXTRACT TOKEN
 
